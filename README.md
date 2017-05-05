@@ -112,7 +112,7 @@ renderingOptions:
     submitButtonLabel: ''
 ```
 
-**Note:** Replace the two "\<CAMPAIGNMONITOR-LIST-ID\>" with a valid list identifier that can be obtained from `Lists & Subscribers > <YOUR-LIST>` and copy from the URL `/subscribers/listDetail.aspx?listID=A568B4324E7CE9E7` (only the part after `=`). A list ID usually contains letters and numbers such as "A568B4324E7CE9E7".
+**Note:** Replace the two "\<CAMPAIGNMONITOR-LIST-ID\>" with a valid list identifier that can be obtained from `Lists & Subscribers > <YOUR-LIST> > change name/type > API Subscriber List ID`. A list ID usually contains letters and numbers such as "cbd1eb6f213f838b5a74e57ec8a19cef".
 
 The Form finisher can of course be used without Neos (i.e. for Newsletter-subscriptions within plain Flow applications).
 
