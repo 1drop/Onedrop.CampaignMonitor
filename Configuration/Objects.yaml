@@ -1,0 +1,7 @@
+# Set the configured CampaignMonitor API key when instanciating the CampaignMonitorService singleton
+Onedrop\CampaignMonitor\Domain\Service\CampaignMonitorService:
+  arguments:
+    1:
+      setting: 'Onedrop.CampaignMonitor.apiKey'
+    2:
+      setting: 'Onedrop.CampaignMonitor.clientID'

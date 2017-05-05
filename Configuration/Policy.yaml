@@ -1,0 +1,20 @@
+#                                                                        #
+# Security policy for the "Onedrop.CampaignMonitor" package              #
+#                                                                        #
+
+
+# For Neos all controller actions are protected by default. This allows users with the Administrator role to call the module controller actions
+
+privilegeTargets:
+
+  'Neos\Flow\Security\Authorization\Privilege\Method\MethodPrivilege':
+    'Onedrop.CampaignMonitor:BackendModuleCampaignMonitor':
+      matcher: 'method(Onedrop\CampaignMonitor\Controller\Module\CampaignMonitorController->(.*)Action())'
+
+roles:
+
+  'Neos.Neos:Administrator':
+    privileges:
+      -
+        privilegeTarget: 'Onedrop.CampaignMonitor:BackendModuleCampaignMonitor'
+        permission: GRANT

@@ -1,0 +1,40 @@
+<f:layout name="BackendSubModule" />
+
+<f:section name="content">
+	<div class="neos-row-fluid">
+		<f:if condition="{lists}">
+			<f:then>
+				<f:widget.paginate objects="{lists}" as="paginatedLists" configuration="{maximumNumberOfLinks: 10}">
+					<table class="neos-table">
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Number of active subscribers</th>
+								<th>ID</th>
+								<th>&nbsp;</th>
+							</tr>
+						</thead>
+						<f:for each="{paginatedLists}" as="list">
+							<tr>
+								<td><i class="icon-envelope-o"></i> <f:link.action action="list" arguments="{listId: list.ListID}">{list.Name}</f:link.action></td>
+								<td>{list.MemberCount}</td>
+								<td>{list.ListID}</td>
+								<td class="neos-action">
+									<div class="neos-pull-right">
+										<f:link.action action="list" arguments="{listId: list.ListID}" class="neos-button neos-button-primary" title="View list details">
+											<i class="icon-info-sign icon-white"></i>
+										</f:link.action>
+									</div>
+								</td>
+							</tr>
+						</f:for>
+					</table>
+				</f:widget.paginate>
+			</f:then>
+			<f:else>
+				<p>No CampaignMonitor lists found.</p>
+				<p>Did you configure the API key correctly at <b>Onedrop.CampaignMonitor.apiKey</b>?</p>
+			</f:else>
+		</f:if>
+	</div>
+</f:section>

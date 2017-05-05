@@ -1,0 +1,39 @@
+Onedrop:
+  CampaignMonitor:
+    apiKey: ''
+    clientID: ''
+Neos:
+  Form:
+    supertypeResolver:
+      hiddenProperties:
+        formBuilder: formBuilder
+    presets:
+      default:
+        finisherPresets:
+          'Onedrop.CampaignMonitor:CampaignMonitorSubscriptionFinisher':
+            implementationClassName: Onedrop\CampaignMonitor\Form\Finishers\CampaignMonitorSubscriptionFinisher
+        validatorPresets:
+          'Onedrop.CampaignMonitor:UniqueSubscription':
+            implementationClassName: Onedrop\CampaignMonitor\Validation\Validator\UniqueSubscriptionValidator
+        formElementTypes:
+          'Neos.Form:Form':
+            formBuilder:
+              editors:
+                finishers:
+                  availableFinishers:
+                    'Onedrop.CampaignMonitor:CampaignMonitorSubscriptionFinisher':
+                      label: 'CampaignMonitor Finisher'
+                      templateName: Finisher-Onedrop.CampaignMonitor-CampaignMonitorSubscriptionFinisher
+  FormBuilder:
+    handlebarsTemplates:
+      Finisher-Onedrop.CampaignMonitor-CampaignMonitorSubscriptionFinisher: 'resource://Onedrop.CampaignMonitor/Private/FormBuilderTemplates/CampaignMonitorSubscriptionFinisher.html'
+  Neos:
+    modules:
+      administration:
+        submodules:
+          campaignmonitor:
+            label: CampaignMonitor
+            controller: Onedrop\CampaignMonitor\Controller\Module\CampaignMonitorController
+            description: 'This module provides you with a simple overview of your CampaignMonitor® lists and allows for (un)subscribing members'
+            icon: icon-envelope-o
+            resource: 'Onedrop.CampaignMonitor:BackendModuleCampaignMonitor'

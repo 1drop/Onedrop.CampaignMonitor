@@ -1,0 +1,6 @@
+# use Neos.Neos layouts and partials when dispatching controllers inside the Neos modules
+-
+  requestFilter: 'mainRequest.isPackage("Neos.Neos") && isPackage("Onedrop.CampaignMonitor") && isController("Module\CampaignMonitor")'
+  options:
+    'layoutRootPaths': ['resource://Neos.Neos/Private/Layouts']
+    'partialRootPaths': ['resource://Onedrop.CampaignMonitor/Private/Partials', 'resource://Neos.Neos/Private/Partials']
